@@ -6,9 +6,9 @@ public class UserInterface{
     private TodoList list;
     private Scanner scanner;
 
-    public void UI(Scanner scanner, TodoList){
-        TodoList = TodoList;
-        Scanner = Scanner;
+    public UserInterface(Scanner theScanner, TodoList theList ) {
+            list = theList;
+            scanner = theScanner;
     }
 
     public void start(){
@@ -17,14 +17,19 @@ public class UserInterface{
         while(true){
             System.out.print("Command: ");
             String command = scanner.nextLine();
-            if (command.equals("add")) {
+
+            if (command.equals("stop")) {
+                break;
+            }
+            else if (command.equals("list")){
+                list.print();
+                continue;
+            }
+            else if (command.equals("add")) {
                 System.out.print("To add: " );
                 String toadd = scanner.nextLine();
                 list.add(toadd);
-                
-            }
-            else if(command.equals("list")) {
-                
+                continue;
             }
             
 
